@@ -2,32 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  .container {
+    position: relative;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    z-index: -1;
+
+    background: url("/images/bg-pattern.png");
+    background-size: 13px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-border {
+    text-shadow:
+      0.5px 0 #000,
+      -0.5px 0 #000,
+      0 0.5px #000,
+      0 -0.5px #000,
+      0.5px 0.5px #000,
+      -0.5px -0.5px #000,
+      0.5px -0.5px #000,
+      -0.5px 0.5px #000;
   }
 }
