@@ -4,7 +4,7 @@ import { Handlee } from "next/font/google";
 export const FHandlee = Handlee({
   subsets: ["latin"],
   weight: "400",
-  // display: "swap",
+  display: "swap",
 });
 
 export const FInter = Inter({

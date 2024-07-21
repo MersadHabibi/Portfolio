@@ -19,6 +19,14 @@
     background: url("/images/bg-pattern.png");
     background-size: 13px;
   }
+
+  .text-underline::before {
+    content: " ";
+  }
+
+  .text-underline {
+    @apply relative before:absolute before:inset-0 before:-z-10 before:mt-auto before:h-1/2 before:w-full before:bg-first-color-100;
+  }
 }
 
 @layer utilities {
