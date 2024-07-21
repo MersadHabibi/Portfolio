@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="flex flex-col justify-between gap-y-6 pl-5 pt-32 sm:pl-10 md:gap-y-7 lg:flex-row lg:items-end lg:pl-5 xl:pl-12 xl:pr-8">
-      <div className="space-y-6">
-        <div className="flex items-start gap-x-6">
+    <header className="flex flex-col justify-between gap-y-4 py-32 pl-5 sm:pl-10 md:gap-y-7 lg:flex-row lg:items-end lg:pl-5 xl:pl-8 xl:pr-5">
+      <div className="space-y-4">
+        <div className="flex items-start gap-x-3 md:gap-x-6">
           <div className="-mt-3 size-20 md:-mt-5 md:size-28">
             <Image
               className="size-full object-cover"
@@ -26,15 +26,15 @@ export default function Header() {
             Mersad
           </p>
         </div>
-        <p className="max-w-md text-[36px] font-semibold leading-[50px] md:text-[64px] md:leading-[77px]">
+        <h1 className="max-w-md text-[36px] font-semibold leading-[50px] md:text-[64px] md:leading-[77px]">
           I <span className="text-underline">develop</span> top notch websites
-        </p>
+        </h1>
       </div>
       <div className="space-y-5 md:space-y-8">
-        <p className="max-w-[420px] font-normal md:text-2xl">
+        <h2 className="max-w-[420px] font-normal md:text-2xl">
           I`ll develop your website with best and latest technologies.
-        </p>
-        <button className="bg-first-text-color px-8 py-2 text-white md:px-12 md:py-4 md:text-2xl">
+        </h2>
+        <button className="bg-first-text-color px-8 py-2 text-white shadow-lg shadow-black/5 md:px-12 md:py-4 md:text-2xl">
           contact me
         </button>
       </div>

@@ -17,11 +17,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "font-sans font-medium text-first-text-color",
+          "overflow-x-hidden font-sans font-medium text-first-text-color",
           FInter.className,
         )}>
-        <div className="sm:px-2">
-          <div className="container border-black px-3 xs:border-l-[3px] xs:px-0">
+        <div className="">
+          <div className="container border-black px-3 xs:border-l-[3px] xs:px-3">
             {children}
           </div>
         </div>
