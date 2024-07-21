@@ -11,7 +11,7 @@ export default function Header() {
           <div className="-mt-3 size-20 md:-mt-5 md:size-28">
             <Image
               className="size-full object-cover"
-              src={"/svgs/boy.svg"}
+              src={"/svg/boy.svg"}
               alt="mersadhabibi"
               width={300}
               height={300}
@@ -26,7 +26,7 @@ export default function Header() {
             Mersad
           </p>
         </div>
-        <h1 className="max-w-md text-[36px] font-semibold leading-[50px] md:text-[64px] md:leading-[77px]">
+        <h1 className="text-[36px] font-semibold leading-[50px] md:max-w-md md:text-[64px] md:leading-[77px]">
           I <span className="text-underline">develop</span> top notch websites
         </h1>
       </div>

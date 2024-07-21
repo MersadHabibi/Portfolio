@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function WhatIDo() {
   return (
-    <div className="">
-      <div className="space-y-8 pl-16">
+    <div className="pb-6 lg:pb-48">
+      <div className="space-y-8 pl-2 lg:pl-16">
         <h3
           className={cn(
             "text-border w-fit bg-first-color-100 text-xl font-normal md:text-3xl/10",
@@ -29,7 +29,7 @@ export default function WhatIDo() {
             <div className="size-12">
               <Image
                 className="size-full overflow-visible object-cover"
-                src={"/svgs/pen.svg"}
+                src={"/svg/pen.svg"}
                 alt="Pen"
                 width={100}
                 height={100}
@@ -52,7 +52,7 @@ export default function WhatIDo() {
             <div className="size-14 sm:size-16">
               <Image
                 className="size-full -rotate-3 overflow-visible object-cover"
-                src={"/svgs/eye.svg"}
+                src={"/svg/eye.svg"}
                 alt="Pen"
                 width={100}
                 height={100}
@@ -75,7 +75,7 @@ export default function WhatIDo() {
             <div className="size-16">
               <Image
                 className="size-full overflow-visible object-cover"
-                src={"/svgs/star.svg"}
+                src={"/svg/star.svg"}
                 alt="star"
                 width={100}
                 height={100}

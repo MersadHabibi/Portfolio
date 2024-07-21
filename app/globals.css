@@ -32,13 +32,20 @@
 @layer utilities {
   .text-border {
     text-shadow:
-      0.5px 0 #000,
-      -0.5px 0 #000,
-      0 0.5px #000,
-      0 -0.5px #000,
-      0.5px 0.5px #000,
-      -0.5px -0.5px #000,
-      0.5px -0.5px #000,
-      -0.5px 0.5px #000;
+      0.5px 0 #0c0c0c,
+      -0.5px 0 #0c0c0c,
+      0 0.5px #0c0c0c,
+      0 -0.5px #0c0c0c,
+      0.5px 0.5px #0c0c0c,
+      -0.5px -0.5px #0c0c0c,
+      0.5px -0.5px #0c0c0c,
+      -0.5px 0.5px #0c0c0c;
+  }
+
+  .project-button-radiuses {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
   }
 }

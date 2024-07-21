@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "overflow-x-hidden font-sans font-medium text-first-text-color",
+          "!w-svw overflow-x-hidden font-sans font-medium text-first-text-color",
           FInter.className,
         )}>
         <div className="">

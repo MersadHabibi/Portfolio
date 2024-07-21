@@ -38,6 +38,10 @@ const config = {
           200: "#EECD56",
           300: "#BB9C2A",
         },
+        "fourth-color": {
+          200: "#7CF072",
+          300: "#4ED543",
+        },
         "first-text-color": "#0c0c0c",
       },
       backgroundImage: {

@@ -4,7 +4,7 @@ export default function Arrow({ className }: { className?: string }) {
   return (
     <Image
       className={className}
-      src={"/images/arrow.png"}
+      src={"/svg/arrow.svg"}
       alt="arrow"
       width={100}
       height={100}
