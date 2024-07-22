@@ -24,7 +24,7 @@ const Links = [
 export default function Footer() {
   return (
     <div className="border-t-[3px] border-black">
-      <div className="container flex flex-col justify-between gap-y-6 border-black px-5 py-8 xs:border-l-[3px] sm:gap-y-8 sm:px-8 sm:py-12 lg:flex-row lg:items-center">
+      <div className="container flex flex-col justify-between gap-y-6 border-black px-5 py-8 xs:border-l-[3px] sm:gap-y-8 sm:px-8 sm:py-12 lg:flex-row lg:items-start">
         <h4
           className={cn("text-border text-xl sm:text-4xl", FHandlee.className)}>
           Mersad Habibi
@@ -43,7 +43,12 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <p className="font-normal sm:text-2xl">Copyright. Portfolio 2024</p>
+          <div className="space-y-2 lg:text-center">
+            <p className="font-normal sm:text-xl">
+              mersadhabibi.work@gmail.com
+            </p>
+            <p className="font-normal sm:text-2xl">Copyright. mersad habibi</p>
+          </div>
         </div>
       </div>
     </div>

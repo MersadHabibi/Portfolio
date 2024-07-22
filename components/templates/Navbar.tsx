@@ -13,7 +13,7 @@ export default function Navbar() {
       </div>
       <div className="flex items-center gap-x-8 text-base/4 md:text-2xl/6">
         <Link href={"#"}>Portfolio</Link>
-        <Link href={"#"} className="text-underline">
+        <Link href={"#contact"} className="text-underline">
           Contact Me
         </Link>
       </div>
