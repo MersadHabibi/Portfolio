@@ -1,8 +1,9 @@
+import Footer from "@/components/templates/Footer";
 import { FInter } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import Footer from "@/components/templates/Footer";
 
 export const metadata: Metadata = {
   title: "Portfolio | Mersad Habibi",
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
