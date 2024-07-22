@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="flex flex-col justify-between gap-y-4 py-32 pl-5 sm:pl-10 md:gap-y-7 lg:flex-row lg:items-end lg:pl-5 xl:pl-8 xl:pr-5">
+    <header className="flex flex-col justify-between gap-y-4 pb-40 pl-5 pt-32 sm:pl-5 md:gap-y-7 lg:flex-row lg:items-end lg:pl-5 xl:pl-8 xl:pr-5">
       <div className="space-y-4">
         <div className="flex items-start gap-x-3 md:gap-x-6">
           <div className="-mt-3 size-20 md:-mt-5 md:size-28">

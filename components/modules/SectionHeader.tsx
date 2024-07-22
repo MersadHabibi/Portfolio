@@ -22,7 +22,7 @@ export default function SectionHeader({
       <div className="flex w-fit flex-col gap-y-10 lg:items-end">
         <h3
           className={cn(
-            "text-border w-fit bg-first-color-100 text-xl font-normal shadow-md shadow-first-color-100/20 md:text-3xl/10",
+            "text-border w-fit bg-first-color-100 text-xl font-normal shadow-md shadow-first-color-100/20 sm:text-3xl/10",
             FHandlee.className,
             titleClassName,
           )}>

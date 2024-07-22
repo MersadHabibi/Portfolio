@@ -6,7 +6,7 @@ import WhatIDo from "@/components/templates/WhatIDo";
 
 export default function Home() {
   return (
-    <main className="min-h-screen pb-96">
+    <main className="min-h-screen">
       <Navbar />
       <Header />
       <WhatIDo />

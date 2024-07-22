@@ -34,7 +34,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="flex flex-col px-2 pb-28 lg:flex-row lg:pb-48">
+    <section className="flex flex-col px-2 pb-24 lg:flex-row lg:pb-48">
       <SectionHeader title="Featured Projects" />
       <div className="grid w-full grid-cols-1 grid-rows-2 gap-4 sm:grid-cols-2 sm:gap-3 md:gap-6 xl:gap-8">
         {projects.map((project) => (

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col gap-x-20 px-2 pb-6 lg:flex-row lg:justify-between lg:pb-48 xl:gap-x-32 2xl:gap-x-60">
+    <section className="flex flex-col gap-x-20 px-2 pb-24 lg:flex-row lg:justify-between lg:pb-48 xl:gap-x-32 2xl:gap-x-60">
       <SectionHeader
         title="Contact Here"
         description={
@@ -12,14 +12,14 @@ export default function Contact() {
             Have a project idea? <br /> just say me Hi.
           </>
         }
-        className="pt-4"
+        className="!pt-4"
         titleClassName="mr-auto"
       />
-      <div className="w-full space-y-10 pr-10 sm:space-y-14">
+      <div className="w-full space-y-10 sm:space-y-14 lg:pr-10">
         <div className="flex">
           <h3
             className={cn(
-              "text-border w-fit shrink-0 border-l-2 border-black bg-first-color-100 px-1 text-xl font-normal shadow-md shadow-first-color-100/50 md:text-3xl/10",
+              "text-border w-fit shrink-0 border-l-2 border-black bg-first-color-100 px-1 text-xl font-normal shadow-md shadow-first-color-100/50 sm:text-3xl/10",
               FHandlee.className,
             )}>
             Name
@@ -28,7 +28,7 @@ export default function Contact() {
             type="text"
             placeholder="Your name ..."
             className={cn(
-              "w-full border-b border-black bg-transparent px-6 outline-none sm:text-[28px]",
+              "w-full border-b border-black bg-transparent px-3 outline-none sm:px-6 sm:text-[28px]",
               FHandlee.className,
             )}
           />
@@ -36,7 +36,7 @@ export default function Contact() {
         <div className="flex">
           <h3
             className={cn(
-              "text-border w-fit shrink-0 border-l-2 border-black bg-third-color-100 px-1 text-xl font-normal shadow-md shadow-third-color-100/40 md:text-3xl/10",
+              "text-border w-fit shrink-0 border-l-2 border-black bg-third-color-100 px-1 text-xl font-normal shadow-md shadow-third-color-100/40 sm:text-3xl/10",
               FHandlee.className,
             )}>
             Your Email
@@ -45,7 +45,7 @@ export default function Contact() {
             type="text"
             placeholder="Your email ..."
             className={cn(
-              "w-full border-b border-black bg-transparent px-6 outline-none sm:text-[28px]",
+              "w-full border-b border-black bg-transparent px-3 outline-none sm:px-6 sm:text-[28px]",
               FHandlee.className,
             )}
           />
@@ -53,7 +53,7 @@ export default function Contact() {
         <div className="flex">
           <h3
             className={cn(
-              "text-border w-fit shrink-0 border-l-2 border-black bg-second-color-100 px-1 text-xl font-normal shadow-md shadow-second-color-100/30 md:text-3xl/10",
+              "text-border w-fit shrink-0 border-l-2 border-black bg-second-color-100 px-1 text-xl font-normal shadow-md shadow-second-color-100/30 sm:text-3xl/10",
               FHandlee.className,
             )}>
             About Project
@@ -62,7 +62,7 @@ export default function Contact() {
             type="text"
             placeholder="Description ..."
             className={cn(
-              "w-full border-b border-black bg-transparent px-6 outline-none sm:text-[28px]",
+              "w-full border-b border-black bg-transparent px-3 outline-none sm:px-6 sm:text-[28px]",
               FHandlee.className,
             )}
           />

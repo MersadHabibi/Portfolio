@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export default function WhatIDo() {
   return (
-    <section className="pb-28 lg:pb-48">
+    <section className="pb-32 lg:pb-48">
       <div className="space-y-8 pl-5 lg:pl-16">
         <h3
           className={cn(
-            "text-border w-fit bg-first-color-100 text-xl font-normal md:text-3xl/10",
+            "text-border w-fit bg-first-color-100 text-xl font-normal sm:text-3xl/10",
             FHandlee.className,
           )}>
           What i do?

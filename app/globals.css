@@ -41,6 +41,17 @@
       0.5px -0.5px #0c0c0c,
       -0.5px 0.5px #0c0c0c;
   }
+  .text-border-white {
+    text-shadow:
+      0.5px 0 #fff,
+      -0.5px 0 #fff,
+      0 0.5px #fff,
+      0 -0.5px #fff,
+      0.5px 0.5px #fff,
+      -0.5px -0.5px #fff,
+      0.5px -0.5px #fff,
+      -0.5px 0.5px #fff;
+  }
 
   .project-button-radiuses {
     border-top-left-radius: 20px;
