@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function WhatIDo() {
   return (
-    <div className="pb-6 lg:pb-48">
-      <div className="space-y-8 pl-2 lg:pl-16">
+    <section className="pb-28 lg:pb-48">
+      <div className="space-y-8 pl-5 lg:pl-16">
         <h3
           className={cn(
             "text-border w-fit bg-first-color-100 text-xl font-normal md:text-3xl/10",
@@ -14,7 +14,7 @@ export default function WhatIDo() {
           )}>
           What i do?
         </h3>
-        <Arrow className="w-16 -rotate-[80deg]" />
+        <Arrow className="w-16 -rotate-[100deg] lg:-rotate-[80deg]" />
       </div>
       <div className="flex flex-col justify-between gap-x-6 gap-y-10 px-5 pt-10 sm:px-20 lg:flex-row lg:px-0 xl:gap-x-8 2xl:gap-x-16">
         <div className="w-full">
@@ -87,6 +87,6 @@ export default function WhatIDo() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

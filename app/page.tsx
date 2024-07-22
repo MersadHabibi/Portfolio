@@ -1,3 +1,4 @@
+import Contact from "@/components/templates/Contact";
 import Header from "@/components/templates/Header";
 import Navbar from "@/components/templates/Navbar";
 import Projects from "@/components/templates/Projects";
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <WhatIDo />
       <Projects />
+      <Contact />
     </main>
   );
 }

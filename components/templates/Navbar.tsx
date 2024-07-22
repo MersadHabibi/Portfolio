@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="flex w-full items-center justify-between py-6 sm:py-10 lg:justify-end">
+    <nav className="flex w-full items-center justify-between py-6 sm:py-10 lg:justify-end">
       <div className="pl-2 sm:pl-10 md:mr-56">
         <h2
           className={cn("text-border text-xl md:text-4xl", FHandlee.className)}>
@@ -17,6 +17,6 @@ export default function Navbar() {
           Contact Me
         </Link>
       </div>
-    </div>
+    </nav>
   );
 }

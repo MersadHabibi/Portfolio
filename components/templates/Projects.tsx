@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Arrow from "../modules/Arrow";
 import Image from "next/image";
 import Link from "next/link";
+import SectionHeader from "../modules/SectionHeader";
 
 const projects = [
   {
@@ -33,17 +34,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="flex flex-col gap-x-16 px-2 lg:flex-row">
-      <div className="mb-10 flex shrink-0 flex-col gap-y-10 pl-2 pt-36 lg:items-end lg:pl-0">
-        <h3
-          className={cn(
-            "text-border w-fit bg-first-color-100 text-xl font-normal md:text-3xl/10",
-            FHandlee.className,
-          )}>
-          Featured Projects
-        </h3>
-        <Arrow className="-mr-2 w-16 -rotate-[80deg] lg:-rotate-[125deg]" />
-      </div>
+    <section className="flex flex-col px-2 pb-28 lg:flex-row lg:pb-48">
+      <SectionHeader title="Featured Projects" />
       <div className="grid w-full grid-cols-1 grid-rows-2 gap-4 sm:grid-cols-2 sm:gap-3 md:gap-6 xl:gap-8">
         {projects.map((project) => (
           <div
@@ -79,6 +71,6 @@ export default function Projects() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
