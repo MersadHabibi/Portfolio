@@ -1,6 +1,5 @@
 import { FHandlee } from "@/config/fonts";
 import { cn } from "@/lib/utils";
-import Arrow from "../modules/Arrow";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "../modules/SectionHeader";
@@ -12,7 +11,7 @@ const projects = [
     image: "/images/next-ecommerce.png",
     buttonStyle:
       "bg-first-color-200 border-[2.5px] border-first-color-300 shadow-lg shadow-first-color-100/40",
-    href: "https://next-ecommerce-murex-mu.vercel.app/",
+    href: "https://github.com/MersadHabibi/next-ecommerce",
   },
   {
     id: 2,
@@ -30,6 +29,14 @@ const projects = [
       "bg-fourth-color-200 border-[2.5px] border-fourth-color-300 shadow-lg shadow-fourth-color-100/40",
     href: "https://github.com/mrnobody1384/X",
   },
+  {
+    id: 4,
+    title: "Fix My Build (Not completed)",
+    image: "/images/fix-my-build.png",
+    buttonStyle:
+      "bg-third-color-200 border-[2.5px] border-third-color-300 shadow-lg shadow-third-color-100/40",
+    href: "https://github.com/MersadHabibi/fix-my-build",
+  },
 ];
 
 export default function Projects() {
@@ -41,9 +48,9 @@ export default function Projects() {
           <div
             key={project.id}
             className="grid space-y-5 rounded-md border-[3px] border-black bg-white p-5 sm:space-y-4 sm:p-3 xl:space-y-5 xl:p-5">
-            <div className="aspect-video overflow-hidden rounded-md sm:aspect-[4/3]">
+            <div className="aspect-video overflow-hidden rounded-md sm:aspect-[7/4]">
               <Image
-                className="w-full rounded-md object-cover sm:rounded-none"
+                className="top-0 size-full rounded-md object-cover object-top sm:rounded-none"
                 src={project.image}
                 alt="next-ecommerce"
                 width={800}
