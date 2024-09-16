@@ -24,7 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <title>Portfolio | Mersad Habibi</title>
-        <meta name="description" content="mersad habibi portfolio" />
+        <meta
+          name="description"
+          content="mersad habibi portfolio | مرصاد حبیبی"
+        />
         <meta property="og:title" content="mersad habibi portfolio" />
         <meta property="og:description" content="mersad habibi portfolio" />
         <meta property="og:image" content="/images/me.jpg" />
@@ -49,7 +52,7 @@ export default function RootLayout({
       </Head>
       <body
         className={cn(
-          "!w-svw overflow-x-hidden font-sans font-medium text-first-text-color",
+          "overflow-x-hidden font-sans font-medium text-first-text-color",
           FInter.className,
         )}>
         <div className="container border-black px-3 xs:border-l-[3px] xs:px-3">
