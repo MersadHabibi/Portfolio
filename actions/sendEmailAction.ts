@@ -22,7 +22,7 @@ export async function sendEmailAction(
   try {
     const { data, error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
-      to: ["mersadhabibi.work@gmail.com"],
+      to: [process.env.MY_EMAIL],
       subject: "Email from portfolio",
       react: EmailTemplate({
         name,
