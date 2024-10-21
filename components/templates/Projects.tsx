@@ -38,7 +38,7 @@ const projects = [
     image: "/images/wiki-sefaresh.png",
     buttonStyle:
       "bg-third-color-200 border-[2.5px] border-third-color-300 shadow-lg shadow-third-color-100/40",
-    href: "https://wiki-sefaresh.vercel.app",
+    href: "https://www.wiki-sefaresh.ir",
     stack: "Full-Stack",
   },
 ];
