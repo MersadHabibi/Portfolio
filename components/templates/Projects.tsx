@@ -24,15 +24,6 @@ const projects = [
     stack: "Front-End",
   },
   {
-    id: 2,
-    title: "sabzlearn.ir clone",
-    image: "/images/sabzlearn.png",
-    buttonStyle:
-      "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
-    href: "https://github.com/MersadHabibi/Sabzlearn",
-    stack: "Front-End",
-  },
-  {
     id: 4,
     title: "Wiki Sefaresh",
     image: "/images/wiki-sefaresh.png",
