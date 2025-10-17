@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "Azarmelk",
-    image: "/images/azarmelk.png",
+    image: "/images/projects/azarmelk.png",
     buttonStyle:
       "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
     href: "https://azarmelek.com",
@@ -13,7 +13,7 @@ export const projects = [
   {
     id: 2,
     title: "Resistance Art",
-    image: "/images/resistanceart.png",
+    image: "/images/projects/resistanceart.png",
     buttonStyle:
       "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
     href: "https://resistanceart.ir",
@@ -24,7 +24,7 @@ export const projects = [
   {
     id: 3,
     title: "Next-Ecommerce",
-    image: "/images/next-ecommerce.png",
+    image: "/images/projects/next-ecommerce.png",
     buttonStyle:
       "bg-first-color-200 border-[2.5px] border-first-color-300 shadow-lg shadow-first-color-100/40",
     href: "https://next-ecommerce-murex-mu.vercel.app",
@@ -35,7 +35,7 @@ export const projects = [
   {
     id: 4,
     title: "Arya Shop",
-    image: "/images/arya-shop.png",
+    image: "/images/projects/arya-shop.png",
     buttonStyle:
       "bg-fourth-color-200 border-[2.5px] border-fourth-color-300 shadow-lg shadow-fourth-color-100/40",
     href: "https://arya-company.com/",
@@ -46,7 +46,7 @@ export const projects = [
   {
     id: 5,
     title: "Wiki Sefaresh",
-    image: "/images/wiki-sefaresh.png",
+    image: "/images/projects/wiki-sefaresh.png",
     buttonStyle:
       "bg-third-color-200 border-[2.5px] border-third-color-300 shadow-lg shadow-third-color-100/40",
     href: "https://www.wiki-sefaresh.ir",
