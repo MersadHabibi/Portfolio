@@ -58,9 +58,35 @@ const config = {
       animation: {
         shine: "shine 5s linear infinite",
       },
+      textStrokeWidth: {
+        sm: "1px",
+        DEFAULT: "2px",
+        lg: "4px",
+      },
+      textStrokeColor: {
+        black: "#000",
+        white: "#fff",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities, theme }: { addUtilities: any; theme: any }) {
+      const widths: Record<string, string> = theme("textStrokeWidth");
+      const colors: Record<string, string> = theme("textStrokeColor");
+      const newUtilities: Record<string, Record<string, string>> = {};
+
+      Object.entries(widths).forEach(([name, width]) => {
+        Object.entries(colors).forEach(([colorName, colorValue]) => {
+          newUtilities[`.text-stroke-${name}-${colorName}` as string] = {
+            "-webkit-text-stroke-width": width,
+            "-webkit-text-stroke-color": colorValue,
+          };
+        });
+      });
+
+      addUtilities(newUtilities);
+    },
+  ],
 } satisfies Config;
 
 export default config;
