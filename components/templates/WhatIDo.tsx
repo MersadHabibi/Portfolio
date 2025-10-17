@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function WhatIDo() {
   return (
-    <section className="pb-32 lg:pb-48">
+    <section className="px-3 pb-32 lg:pb-48">
       <div className="space-y-8 pl-5 lg:pl-16">
         <h3
           className={cn(
@@ -21,7 +21,7 @@ export default function WhatIDo() {
           <div className="relative flex h-96 -rotate-3 flex-col items-start justify-center gap-y-6 rounded-md border-4 border-third-color-200 bg-third-color-100 pl-5 pr-4 shadow-lg shadow-third-color-100/30 xs:pl-10 sm:h-[500px] sm:gap-y-10 md:h-[550px] lg:h-[400px] xl:h-[500px]">
             <p
               className={cn(
-                "text-border absolute -right-7 top-1/4 w-fit rotate-3 bg-second-color-100 text-xl font-normal md:text-3xl/10",
+                "text-border absolute -right-5 top-1/4 w-fit rotate-3 bg-second-color-100 text-xl font-normal sm:-right-7 md:text-3xl/10",
                 FHandlee.className,
               )}>
               React/Next
@@ -67,7 +67,7 @@ export default function WhatIDo() {
           <div className="relative flex h-96 -rotate-3 flex-col items-start justify-center gap-y-6 rounded-md border-4 border-first-color-200 bg-first-color-100 pl-5 pr-4 shadow-lg shadow-first-color-100/30 xs:pl-10 sm:h-[500px] sm:gap-y-10 md:h-[550px] lg:h-[400px] xl:h-[500px]">
             <p
               className={cn(
-                "text-border absolute -right-7 top-1/4 w-fit rotate-3 bg-third-color-100 text-xl font-normal md:text-3xl/10",
+                "text-border absolute -right-5 top-1/4 w-fit rotate-3 bg-third-color-100 text-xl font-normal sm:-right-7 md:text-3xl/10",
                 FHandlee.className,
               )}>
               Console.log

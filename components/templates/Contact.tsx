@@ -32,7 +32,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col gap-x-20 px-2 pb-24 pt-8 lg:flex-row lg:justify-between lg:pb-48 lg:pt-24 xl:gap-x-32 2xl:gap-x-60">
+      className="flex flex-col gap-x-20 px-5 pb-24 pt-8 lg:flex-row lg:justify-between lg:pb-48 lg:pt-24 xl:gap-x-32 2xl:gap-x-60">
       <SectionHeader
         title="Contact Here"
         description={

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Head from "next/head";
+import DotGrid from "@/components/modules/animation/DotGrid";
 
 export const metadata: Metadata = {
   title: "Portfolio | Mersad Habibi",
@@ -55,8 +56,23 @@ export default function RootLayout({
           "overflow-x-hidden font-sans font-medium text-first-text-color",
           FInter.className,
         )}>
-        <div className="container border-black px-3 xs:border-l-[3px] xs:px-3">
-          {children}
+        {/* <div className="sticky top-0 -z-10 h-0">
+          <div className="-z-10 h-dvh w-full md:container">
+            <DotGrid
+              dotSize={2}
+              gap={12}
+              baseColor="#cccccc"
+              activeColor="#cccccc"
+              proximity={120}
+              shockRadius={250}
+              shockStrength={5}
+              resistance={750}
+              returnDuration={1.5}
+            />
+          </div>
+        </div> */}
+        <div className="container">
+          <div className="border-black xs:border-l-[3px]">{children}</div>
         </div>
         <Footer />
         <Toaster />

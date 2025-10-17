@@ -7,7 +7,7 @@ import WhatIDo from "@/components/templates/WhatIDo";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="">
       <Navbar />
       <Header />
       <Skills />

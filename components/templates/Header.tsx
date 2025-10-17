@@ -3,10 +3,11 @@ import { FHandlee } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import RotatingText from "../modules/animation/RotatingText";
 
 export default function Header() {
   return (
-    <header className="flex flex-col justify-between gap-y-4 pb-52 pl-5 pt-36 sm:pb-28 sm:pl-5 sm:pt-28 md:gap-y-7 lg:flex-row lg:items-end lg:pb-44 lg:pl-5 xl:pl-8 xl:pr-5">
+    <header className="flex flex-col justify-between gap-y-4 pb-[130px] pl-5 pt-[120px] sm:pb-28 sm:pl-5 sm:pt-20 md:gap-y-7 lg:flex-row lg:items-end lg:pb-36 lg:pl-5 xl:pl-8 xl:pr-5">
       <div className="space-y-4">
         <div className="flex items-start gap-x-3 md:gap-x-6">
           <div className="-mt-3 size-20 overflow-hidden rounded-full bg-second-color-100 md:-mt-5 md:size-28">
@@ -28,7 +29,20 @@ export default function Header() {
           </p>
         </div>
         <h1 className="text-[36px] font-semibold leading-[50px] md:max-w-lg md:text-[64px] md:leading-[77px]">
-          I <span className="text-underline">develop</span> top notch websites
+          I{" "}
+          <RotatingText
+            texts={["develop", "build", "design", "debug"]}
+            mainClassName="px-2 sm:px-2 md:px-3 text-underline text-black overflow-hidden transition-all duration-300 -mb-3 !py-0 justify-center"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={4000}
+          />{" "}
+          top notch websites
         </h1>
       </div>
       <div className="space-y-5 md:space-y-8">
