@@ -3,36 +3,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "../modules/SectionHeader";
-
-const projects = [
-  {
-    id: 1,
-    title: "Next-Ecommerce",
-    image: "/images/next-ecommerce.png",
-    buttonStyle:
-      "bg-first-color-200 border-[2.5px] border-first-color-300 shadow-lg shadow-first-color-100/40",
-    href: "https://next-ecommerce-murex-mu.vercel.app",
-    stack: "Full-Stack",
-  },
-  {
-    id: 3,
-    title: "Arya Shop",
-    image: "/images/arya-shop.png",
-    buttonStyle:
-      "bg-fourth-color-200 border-[2.5px] border-fourth-color-300 shadow-lg shadow-fourth-color-100/40",
-    href: "https://arya-company.com/",
-    stack: "Front-End",
-  },
-  {
-    id: 4,
-    title: "Wiki Sefaresh",
-    image: "/images/wiki-sefaresh.png",
-    buttonStyle:
-      "bg-third-color-200 border-[2.5px] border-third-color-300 shadow-lg shadow-third-color-100/40",
-    href: "https://www.wiki-sefaresh.ir",
-    stack: "Full-Stack",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
@@ -56,8 +27,8 @@ export default function Projects() {
               <div className="mb-4">
                 <p
                   className={cn(
-                    "!h-fit !w-fit rounded-md px-3 py-1 text-xs font-semibold text-gray-900",
-                    project.buttonStyle,
+                    "!h-fit !w-fit rounded-md px-3 py-1 text-xs font-semibold",
+                    project.stackClassName,
                   )}>
                   {project.stack}
                 </p>
@@ -70,7 +41,10 @@ export default function Projects() {
                   )}>
                   {project.title}
                 </p>
-                <Link href={project.href} className="ml-auto shrink-0">
+                <Link
+                  href={project.href}
+                  target="_blank"
+                  className="ml-auto shrink-0">
                   <button
                     className={cn(
                       "project-button-radiuses px-6 py-1.5 text-sm text-white sm:px-8 sm:text-lg",

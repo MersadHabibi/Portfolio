@@ -39,6 +39,7 @@ const config = {
           300: "#BB9C2A",
         },
         "fourth-color": {
+          100: "#CFFFC2",
           200: "#7CF072",
           300: "#4ED543",
         },

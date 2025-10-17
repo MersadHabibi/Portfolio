@@ -2,6 +2,7 @@ import { FHandlee } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import Arrow from "../modules/Arrow";
 import Image from "next/image";
+import { whatIDo } from "@/data/whatIDo";
 
 export default function WhatIDo() {
   return (
@@ -24,19 +25,19 @@ export default function WhatIDo() {
                 "text-border absolute -right-5 top-1/4 w-fit rotate-3 bg-second-color-100 text-xl font-normal sm:-right-7 md:text-3xl/10",
                 FHandlee.className,
               )}>
-              React/Next
+              {whatIDo[0].title}
             </p>
             <div className="size-12">
               <Image
                 className="size-full overflow-visible object-cover"
-                src={"/svg/pen.svg"}
+                src={whatIDo[0].image}
                 alt="Pen"
                 width={100}
                 height={100}
               />
             </div>
             <p className="text-2xl font-medium text-black sm:text-4xl/10">
-              Develop Front-end Logic
+              {whatIDo[0].description}
             </p>
           </div>
         </div>
@@ -47,19 +48,19 @@ export default function WhatIDo() {
                 "text-border absolute -top-7 right-7 w-fit -rotate-3 bg-first-color-100 text-xl font-normal md:text-3xl/10",
                 FHandlee.className,
               )}>
-              Tailwind
+              {whatIDo[1].title}
             </p>
             <div className="size-14 sm:size-16">
               <Image
                 className="size-full -rotate-3 overflow-visible object-cover"
-                src={"/svg/eye.svg"}
+                src={whatIDo[1].image}
                 alt="Pen"
                 width={100}
                 height={100}
               />
             </div>
             <p className="text-2xl font-medium text-black sm:text-4xl/10">
-              Design Website UI
+              {whatIDo[1].description}
             </p>
           </div>
         </div>
@@ -70,19 +71,19 @@ export default function WhatIDo() {
                 "text-border absolute -right-5 top-1/4 w-fit rotate-3 bg-third-color-100 text-xl font-normal sm:-right-7 md:text-3xl/10",
                 FHandlee.className,
               )}>
-              Console.log
+              {whatIDo[2].title}
             </p>
             <div className="size-16">
               <Image
                 className="size-full overflow-visible object-cover"
-                src={"/svg/star.svg"}
+                src={whatIDo[2].image}
                 alt="star"
                 width={100}
                 height={100}
               />
             </div>
             <p className="text-2xl font-medium text-black sm:text-4xl/10">
-              Debug Website UI & Logic
+              {whatIDo[2].description}
             </p>
           </div>
         </div>

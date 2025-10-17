@@ -1,17 +1,7 @@
 import { FHandlee } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import SectionHeader from "../modules/SectionHeader";
-
-const experiences = [
-  {
-    id: 1,
-    company: "Pardakht Plus",
-    position: "Front-End Developer",
-    description:
-      "Developed websites and internal tools using latest technologies and best practices.",
-    date: "November 2024 - Present",
-  },
-];
+import { experiences } from "@/data/experiences";
 
 export default function Experiences() {
   return (
