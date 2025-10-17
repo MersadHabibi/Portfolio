@@ -1,7 +1,7 @@
 export const experiences = [
   {
     id: 1,
-    company: "Pardakht Plus",
+    company: "Tazmin Plus",
     position: "Front-End Developer",
     description:
       "Developed websites and internal tools using latest technologies and best practices.",
