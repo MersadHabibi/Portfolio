@@ -5,7 +5,7 @@ export const projects = [
     image: "/images/projects/azarmelk.png",
     buttonStyle:
       "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
-    href: "https://azarmelek.com",
+    href: "https://azarmelk.com",
     stack: "Front-End",
     stackClassName:
       "bg-second-color-100 border-2 border-second-color-200 shadow-lg shadow-second-color-100/40 text-second-color-300",
