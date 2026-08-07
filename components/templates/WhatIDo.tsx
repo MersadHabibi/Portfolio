@@ -1,92 +1,101 @@
-import { FHandlee } from "@/config/fonts";
-import { cn } from "@/lib/utils";
-import Arrow from "../modules/Arrow";
-import Image from "next/image";
-import { whatIDo } from "@/data/whatIDo";
+"use client";
+
+import { motion } from "motion/react";
+import { FiArrowUpRight } from "react-icons/fi";
+import {
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiNextdotjs,
+} from "react-icons/si";
+import SectionHeading from "../modules/SectionHeading";
+import { RevealGroup, RevealItem } from "../modules/Reveal";
+
+const services = [
+  {
+    icon: SiReact,
+    title: "Front-End Development",
+    description:
+      "Pixel-perfect, accessible interfaces built with React and modern tooling.",
+    tint: "from-accent/25",
+    iconColor: "text-accent-soft",
+    chip: "React · Next.js",
+  },
+  {
+    icon: SiNextdotjs,
+    title: "Performance & UX",
+    description:
+      "Fast-loading, buttery-smooth experiences scored by real metrics, not guesses.",
+    tint: "from-cyan-neon/20",
+    iconColor: "text-cyan-neon",
+    chip: "Lighthouse 90+",
+  },
+  {
+    icon: SiTypescript,
+    title: "Type-Safe Engineering",
+    description:
+      "Reliable, maintainable codebases with TypeScript, tested and shipped with care.",
+    tint: "from-pink-neon/20",
+    iconColor: "text-pink-neon",
+    chip: "TypeScript · GraphQL",
+  },
+];
 
 export default function WhatIDo() {
   return (
-    <section className="px-3 pb-32 lg:pb-48">
-      <div className="space-y-8 pl-5 lg:pl-16">
-        <h3
-          className={cn(
-            "text-border w-fit bg-first-color-100 text-xl font-normal sm:text-3xl/10",
-            FHandlee.className,
-          )}>
-          What i do?
-        </h3>
-        <Arrow className="w-16 -rotate-[100deg] lg:-rotate-[80deg]" />
-      </div>
-      <div className="flex flex-col justify-between gap-x-6 gap-y-10 px-5 pt-10 sm:px-20 lg:flex-row lg:px-0 xl:gap-x-8 2xl:gap-x-16">
-        <div className="w-full">
-          <div className="relative flex h-96 -rotate-3 flex-col items-start justify-center gap-y-6 rounded-md border-4 border-third-color-200 bg-third-color-100 pl-5 pr-4 shadow-lg shadow-third-color-100/30 xs:pl-10 sm:h-[500px] sm:gap-y-10 md:h-[550px] lg:h-[400px] xl:h-[500px]">
-            <p
-              className={cn(
-                "text-border absolute -right-5 top-1/4 w-fit rotate-3 bg-second-color-100 text-xl font-normal sm:-right-7 md:text-3xl/10",
-                FHandlee.className,
-              )}>
-              {whatIDo[0].title}
-            </p>
-            <div className="size-12">
-              <Image
-                className="size-full overflow-visible object-cover"
-                src={whatIDo[0].image}
-                alt="Pen"
-                width={100}
-                height={100}
-              />
-            </div>
-            <p className="text-2xl font-medium text-black sm:text-4xl/10">
-              {whatIDo[0].description}
-            </p>
-          </div>
-        </div>
-        <div className="w-full">
-          <div className="relative flex h-96 rotate-3 flex-col items-start justify-center gap-y-6 rounded-md border-4 border-second-color-200 bg-second-color-100 pl-5 pr-4 shadow-lg shadow-second-color-100/30 xs:pl-10 sm:h-[500px] sm:gap-y-10 md:h-[550px] lg:h-[400px] xl:h-[500px]">
-            <p
-              className={cn(
-                "text-border absolute -top-7 right-7 w-fit -rotate-3 bg-first-color-100 text-xl font-normal md:text-3xl/10",
-                FHandlee.className,
-              )}>
-              {whatIDo[1].title}
-            </p>
-            <div className="size-14 sm:size-16">
-              <Image
-                className="size-full -rotate-3 overflow-visible object-cover"
-                src={whatIDo[1].image}
-                alt="Pen"
-                width={100}
-                height={100}
-              />
-            </div>
-            <p className="text-2xl font-medium text-black sm:text-4xl/10">
-              {whatIDo[1].description}
-            </p>
-          </div>
-        </div>
-        <div className="w-full">
-          <div className="relative flex h-96 -rotate-3 flex-col items-start justify-center gap-y-6 rounded-md border-4 border-first-color-200 bg-first-color-100 pl-5 pr-4 shadow-lg shadow-first-color-100/30 xs:pl-10 sm:h-[500px] sm:gap-y-10 md:h-[550px] lg:h-[400px] xl:h-[500px]">
-            <p
-              className={cn(
-                "text-border absolute -right-5 top-1/4 w-fit rotate-3 bg-third-color-100 text-xl font-normal sm:-right-7 md:text-3xl/10",
-                FHandlee.className,
-              )}>
-              {whatIDo[2].title}
-            </p>
-            <div className="size-16">
-              <Image
-                className="size-full overflow-visible object-cover"
-                src={whatIDo[2].image}
-                alt="star"
-                width={100}
-                height={100}
-              />
-            </div>
-            <p className="text-2xl font-medium text-black sm:text-4xl/10">
-              {whatIDo[2].description}
-            </p>
-          </div>
-        </div>
+    <section id="work" className="scroll-mt-24 py-24 lg:py-32">
+      <div className="container">
+        <SectionHeading
+          index="02"
+          eyebrow="WHAT I DO"
+          title={
+            <>
+              Turning ideas into
+              <br />
+              <span className="text-gradient">digital experiences</span>
+            </>
+          }
+          description="I focus on the intersection of design and engineering to build products people love to use."
+          className="mb-16"
+        />
+
+        <RevealGroup className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {services.map((service) => (
+            <RevealItem key={service.title}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="group relative h-full overflow-hidden rounded-2xl glass p-7">
+                {/* Gradient tint on hover */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${service.tint} to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+                />
+                <div className="relative flex h-full flex-col gap-5">
+                  <div className="flex items-start justify-between">
+                    <span
+                      className={`grid size-12 place-items-center rounded-xl bg-white/5 text-2xl ${service.iconColor} transition-transform duration-500 group-hover:scale-110`}>
+                      <service.icon />
+                    </span>
+                    <span className="rounded-full border border-white/10 px-3 py-1 font-mono text-[11px] text-gray-400">
+                      {service.chip}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-xl font-semibold text-white">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                      {service.description}
+                    </p>
+                  </div>
+                  <div className="mt-auto flex items-center gap-1 text-sm font-medium text-accent-soft opacity-0 transition-all duration-300 group-hover:opacity-100">
+                    Learn more <FiArrowUpRight />
+                  </div>
+                </div>
+              </motion.div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </div>
     </section>
   );

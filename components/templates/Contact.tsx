@@ -1,11 +1,12 @@
 "use client";
 
 import { sendEmailAction } from "@/actions/sendEmailAction";
-import { FHandlee } from "@/config/fonts";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import SectionHeader from "../modules/SectionHeader";
+import { FiSend, FiMail, FiMapPin } from "react-icons/fi";
+import SectionHeading from "../modules/SectionHeading";
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +16,7 @@ export default function Contact() {
 
   const sendEmailHandler = async () => {
     if (!name || !email || !body) {
-      return toast.error("Data invalid");
+      return toast.error("Please fill in all fields");
     }
 
     setIsLoading(true);
@@ -23,90 +24,129 @@ export default function Contact() {
     setIsLoading(false);
 
     if (res.status === 200) {
-      return toast.success("Email sended successfully");
+      setName("");
+      setEmail("");
+      setBody("");
+      return toast.success("Message sent successfully");
     }
 
     return toast.error(res.message);
   };
 
   return (
-    <section
-      id="contact"
-      className="flex flex-col gap-x-20 px-3 pb-24 pt-8 lg:flex-row lg:justify-between lg:pb-48 lg:pt-24 xl:gap-x-32 2xl:gap-x-60">
-      <SectionHeader
-        title="Contact Here"
-        description={
-          <>
-            Have a project idea? <br /> just say me Hi.
-          </>
-        }
-        className="!pt-4"
-        titleClassName="mr-auto"
-      />
-      <div className="w-full space-y-10 sm:space-y-14 lg:pr-10">
-        <div className="flex">
-          <h3
-            className={cn(
-              "text-border w-fit shrink-0 border-l-2 border-black bg-first-color-100 px-1 text-xl font-normal shadow-md shadow-first-color-100/50 sm:text-3xl/10",
-              FHandlee.className,
-            )}>
-            Name
-          </h3>
-          <input
-            type="text"
-            placeholder="Your name ..."
-            className={cn(
-              "w-full border-b border-black bg-transparent px-3 outline-none sm:px-6 sm:text-[28px]",
-              FHandlee.className,
-            )}
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
+    <section id="contact" className="scroll-mt-24 py-24 lg:py-32">
+      <div className="container">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <SectionHeading
+              index="05"
+              eyebrow="GET IN TOUCH"
+              title={
+                <>
+                  Let&apos;s build
+                  <br />
+                  <span className="text-gradient">something great</span>
+                </>
+              }
+              description="Have a project in mind or just want to say hi? My inbox is always open."
+            />
+
+            <div className="mt-10 space-y-4">
+              <a
+                href="mailto:mersadhabibi.work@gmail.com"
+                className="flex items-center gap-4 rounded-2xl glass glass-hover p-5">
+                <span className="grid size-11 place-items-center rounded-xl bg-accent/15 text-accent-soft">
+                  <FiMail className="text-xl" />
+                </span>
+                <div>
+                  <p className="text-xs text-gray-500">Email</p>
+                  <p className="text-sm font-medium text-white">
+                    mersadhabibi.work@gmail.com
+                  </p>
+                </div>
+              </a>
+              <div className="flex items-center gap-4 rounded-2xl glass p-5">
+                <span className="grid size-11 place-items-center rounded-xl bg-cyan-neon/15 text-cyan-neon">
+                  <FiMapPin className="text-xl" />
+                </span>
+                <div>
+                  <p className="text-xs text-gray-500">Location</p>
+                  <p className="text-sm font-medium text-white">
+                    Available worldwide · Remote
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl glass p-8">
+            <div className="space-y-6">
+              <Field label="Your name">
+                <input
+                  type="text"
+                  placeholder="Jane Doe"
+                  className="contact-input"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Field>
+              <Field label="Email address">
+                <input
+                  type="email"
+                  placeholder="jane@example.com"
+                  className="contact-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Field>
+              <Field label="About your project">
+                <textarea
+                  rows={4}
+                  placeholder="Tell me about what you're building..."
+                  className="contact-input resize-none"
+                  value={body}
+                  onChange={(e) => setBody(e.target.value)}
+                />
+              </Field>
+              <button
+                onClick={sendEmailHandler}
+                disabled={isLoading}
+                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-glow py-4 font-semibold text-white shadow-glow transition-all hover:shadow-glow-lg disabled:opacity-60">
+                {isLoading ? (
+                  <div className="loader" />
+                ) : (
+                  <>
+                    Send message
+                    <FiSend className="transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
+              </button>
+            </div>
+          </motion.div>
         </div>
-        <div className="flex">
-          <h3
-            className={cn(
-              "text-border w-fit shrink-0 border-l-2 border-black bg-third-color-100 px-1 text-xl font-normal shadow-md shadow-third-color-100/40 sm:text-3xl/10",
-              FHandlee.className,
-            )}>
-            Your Email
-          </h3>
-          <input
-            type="email"
-            placeholder="Your email ..."
-            className={cn(
-              "w-full border-b border-black bg-transparent px-3 outline-none sm:px-6 sm:text-[28px]",
-              FHandlee.className,
-            )}
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </div>
-        <div className="flex">
-          <h3
-            className={cn(
-              "text-border w-fit shrink-0 border-l-2 border-black bg-second-color-100 px-1 text-xl font-normal shadow-md shadow-second-color-100/30 sm:text-3xl/10",
-              FHandlee.className,
-            )}>
-            About Project
-          </h3>
-          <input
-            type="text"
-            placeholder="Description ..."
-            className={cn(
-              "w-full border-b border-black bg-transparent px-3 outline-none sm:px-6 sm:text-[28px]",
-              FHandlee.className,
-            )}
-            value={body}
-            onChange={(event) => setBody(event.target.value)}
-          />
-        </div>
-        <button
-          className="ml-auto block bg-first-text-color px-7 py-2.5 font-semibold text-white disabled:opacity-70 sm:px-10 sm:py-[15px] sm:text-2xl"
-          onClick={sendEmailHandler}>
-          {isLoading ? <div className="loader"></div> : "Send Here"}
-        </button>
       </div>
     </section>
+  );
+}
+
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="block">
+      <span className="mb-2 block text-sm font-medium text-gray-400">
+        {label}
+      </span>
+      {children}
+    </label>
   );
 }

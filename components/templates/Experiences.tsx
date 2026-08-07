@@ -1,45 +1,61 @@
-import { FHandlee } from "@/config/fonts";
-import { cn } from "@/lib/utils";
-import SectionHeader from "../modules/SectionHeader";
+"use client";
+
+import { motion } from "motion/react";
+import SectionHeading from "../modules/SectionHeading";
 import { experiences } from "@/data/experiences";
+import { FiBriefcase } from "react-icons/fi";
 
 export default function Experiences() {
   return (
-    <section className="flex flex-col px-3 pb-16 pt-10 lg:flex-row lg:pb-24">
-      <SectionHeader className="lg:pt-16" title="Work Experience" />
-      <div className="relative w-full lg:m-14 lg:p-16">
-        <div className="absolute bottom-0 left-0 top-0 -mt-14 h-[calc(100%+56px*2)] w-[2px] bg-black max-lg:hidden"></div>
-        <div className="absolute bottom-0 right-0 top-0 -mt-14 h-[calc(100%+56px*2)] w-[2px] bg-black max-lg:hidden"></div>
-        <div className="absolute left-0 right-0 top-0 -ml-14 h-[2px] w-[calc(100%+56px*2)] bg-black max-lg:hidden"></div>
-        <div className="absolute bottom-0 left-0 right-0 -ml-14 h-[2px] w-[calc(100%+56px*2)] bg-black max-lg:hidden"></div>
-        <div className="space-y-14">
-          {experiences.map((experience) => (
-            <div
-              key={experience.id}
-              className="flex items-start gap-x-4 sm:items-center sm:gap-x-8">
-              <div
-                className={cn(
-                  "flex size-10 shrink-0 items-center justify-center rounded-md border-2 border-third-color-200 bg-third-color-100 text-2xl max-sm:mt-1 sm:size-20 sm:text-4xl",
-                  FHandlee.className,
-                )}>
-                <span className="text-stroke-DEFAULT-black text-black">
-                  {experience.id}
-                </span>
-              </div>
-              <div>
-                <h4 className="text-xl font-normal sm:text-2xl">
-                  {experience.position} at{" "}
-                  <span className="font-bold">{experience.company}</span>
-                </h4>
-                <p className="text-base font-normal sm:text-lg">
-                  {experience.description}
-                </p>
-                <p className="mt-0.5 text-sm font-medium text-[#706F6F] sm:text-base">
-                  {experience.date}
-                </p>
-              </div>
-            </div>
-          ))}
+    <section id="experience" className="scroll-mt-24 py-24 lg:py-32">
+      <div className="container">
+        <SectionHeading
+          index="04"
+          eyebrow="CAREER"
+          title={
+            <>
+              Work
+              <br />
+              <span className="text-gradient">experience</span>
+            </>
+          }
+          description="Where I've worked and the value I've delivered along the way."
+          className="mb-16"
+        />
+
+        <div className="relative mx-auto max-w-3xl">
+          {/* Vertical glowing line */}
+          <div className="absolute left-6 top-0 h-full w-px bg-gradient-to-b from-accent via-cyan-neon/50 to-transparent sm:left-8" />
+
+          <div className="space-y-10">
+            {experiences.map((experience, i) => (
+              <motion.div
+                key={experience.id}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative flex gap-6 pl-1 sm:gap-8">
+                {/* Node */}
+                <div className="relative z-10 grid size-12 shrink-0 place-items-center rounded-xl border border-white/10 bg-ink-800 text-accent-soft shadow-glow sm:size-16">
+                  <FiBriefcase className="text-xl sm:text-2xl" />
+                </div>
+
+                <div className="flex-1 rounded-2xl glass glass-hover p-6">
+                  <span className="font-mono text-xs text-cyan-neon">
+                    {experience.date}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-semibold text-white sm:text-2xl">
+                    {experience.position}
+                  </h3>
+                  <p className="text-accent-soft">{experience.company}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                    {experience.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

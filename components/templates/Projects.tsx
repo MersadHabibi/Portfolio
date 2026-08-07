@@ -1,121 +1,114 @@
-import { FHandlee } from "@/config/fonts";
-import { cn } from "@/lib/utils";
+"use client";
+
+import SectionHeading from "../modules/SectionHeading";
+import TiltCard from "../modules/TiltCard";
+import { RevealGroup, RevealItem } from "../modules/Reveal";
+import { FiArrowUpRight, FiFolder } from "react-icons/fi";
 import Image from "next/image";
-import Link from "next/link";
-import SectionHeader from "../modules/SectionHeader";
 import { projects } from "@/data/projects";
 
-// for tailwind to create classes on build time
-const fakeProjectsToCreateTailwindClasses = [
-  {
-    id: 1,
-    title: "Azarmelk",
-    image: "/images/projects/azarmelk.png",
-    buttonStyle:
-      "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
-    href: "https://azarmelek.com",
-    stack: "Front-End",
-    stackClassName:
-      "bg-second-color-100 border-2 border-second-color-200 shadow-lg shadow-second-color-100/40 text-second-color-300",
-  },
-  {
-    id: 2,
-    title: "Resistance Art",
-    image: "/images/projects/resistanceart.png",
-    buttonStyle:
-      "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
-    href: "https://resistanceart.ir",
-    stack: "Front-End",
-    stackClassName:
-      "bg-third-color-100 border-2 border-third-color-200 shadow-lg shadow-third-color-100/40 text-third-color-300",
-  },
-  {
-    id: 3,
-    title: "Next-Ecommerce",
-    image: "/images/projects/next-ecommerce.png",
-    buttonStyle:
-      "bg-first-color-200 border-[2.5px] border-first-color-300 shadow-lg shadow-first-color-100/40",
-    href: "https://next-ecommerce-murex-mu.vercel.app",
-    stack: "Full-Stack",
-    stackClassName:
-      "bg-first-color-100 border-2 border-first-color-200 shadow-lg shadow-first-color-100/40 text-first-color-300",
-  },
-  {
-    id: 4,
-    title: "Arya Shop",
-    image: "/images/projects/arya-shop.png",
-    buttonStyle:
-      "bg-fourth-color-200 border-[2.5px] border-fourth-color-300 shadow-lg shadow-fourth-color-100/40",
-    href: "https://arya-company.com/",
-    stack: "Front-End",
-    stackClassName:
-      "bg-fourth-color-100 border-2 border-fourth-color-200 shadow-lg shadow-fourth-color-100/40 text-fourth-color-300",
-  },
-  {
-    id: 5,
-    title: "Wiki Sefaresh",
-    image: "/images/projects/wiki-sefaresh.png",
-    buttonStyle:
-      "bg-third-color-200 border-[2.5px] border-third-color-300 shadow-lg shadow-third-color-100/40",
-    href: "https://www.wiki-sefaresh.ir",
-    stack: "Full-Stack",
-    stackClassName:
-      "bg-third-color-100 border-2 border-third-color-200 shadow-lg shadow-third-color-100/40 text-third-color-300",
-  },
-];
-
 export default function Projects() {
+  const [featured, ...rest] = projects;
+
   return (
-    <section className="flex flex-col px-3 pb-16 lg:flex-row lg:pb-24">
-      <SectionHeader title="Featured Projects" />
-      <div className="grid w-full grid-cols-1 grid-rows-2 gap-4 sm:grid-cols-2 sm:gap-3 md:gap-6 xl:gap-8">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="grid space-y-3 rounded-md border-[3px] border-black bg-white p-5 sm:space-y-4 sm:p-3 xl:space-y-3 xl:p-5">
-            <div className="aspect-video overflow-hidden rounded-md sm:aspect-[7/4]">
-              <Image
-                className="top-0 size-full rounded-md object-cover object-top sm:rounded-none"
-                src={project.image}
-                alt="next-ecommerce"
-                width={800}
-                height={800}
-              />
-            </div>
-            <div>
-              <div className="mb-4">
-                <p
-                  className={cn(
-                    "!h-fit !w-fit rounded-md px-3 py-1 text-xs font-semibold",
-                    project.stackClassName,
-                  )}>
-                  {project.stack}
-                </p>
+    <section id="projects" className="scroll-mt-24 py-24 lg:py-32">
+      <div className="container">
+        <SectionHeading
+          index="03"
+          eyebrow="SELECTED WORK"
+          title={
+            <>
+              Projects I&apos;m
+              <br />
+              <span className="text-gradient">proud of</span>
+            </>
+          }
+          description="A selection of real products and experiments — from client sites to full-stack apps."
+          className="mb-16"
+        />
+
+        <RevealGroup className="space-y-6">
+          {/* Featured project — spans full width */}
+          <RevealItem>
+            <TiltCard className="group">
+              <div className="glass grid overflow-hidden rounded-2xl md:grid-cols-2">
+                <div className="relative aspect-video overflow-hidden md:aspect-auto">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 to-transparent" />
+                </div>
+                <div className="relative flex flex-col justify-center gap-4 p-8 lg:p-12">
+                  <span className="w-fit rounded-full bg-accent/15 px-3 py-1 font-mono text-xs text-accent-soft">
+                    {featured.stack}
+                  </span>
+                  <h3 className="font-display text-3xl font-bold text-white lg:text-4xl">
+                    {featured.title}
+                  </h3>
+                  <p className="text-gray-400">
+                    A production website built with modern React tooling — fast,
+                    responsive, and polished down to the last pixel.
+                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <a
+                      href={featured.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-ink-900 transition-colors hover:bg-accent hover:text-white">
+                      Visit live site <FiArrowUpRight />
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center justify-between gap-x-8 gap-y-2 sm:flex-wrap xl:flex-nowrap">
-                <p
-                  className={cn(
-                    "text-border text-xl font-normal leading-7 sm:text-2xl xl:text-[28px]",
-                    FHandlee.className,
-                  )}>
-                  {project.title}
-                </p>
-                <Link
-                  href={project.href}
-                  target="_blank"
-                  className="ml-auto shrink-0">
-                  <button
-                    className={cn(
-                      "project-button-radiuses px-6 py-1.5 text-sm text-white sm:px-8 sm:text-lg",
-                      project.buttonStyle,
-                    )}>
-                    View
-                  </button>
-                </Link>
-              </div>
-            </div>
+            </TiltCard>
+          </RevealItem>
+
+          {/* Remaining projects grid */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {rest.map((project) => (
+              <RevealItem key={project.id}>
+                <TiltCard intensity={8} className="group h-full">
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="glass glass-hover flex h-full flex-col overflow-hidden rounded-2xl">
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent" />
+                    </div>
+                    <div className="flex flex-1 flex-col gap-3 p-6">
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-2 text-gray-500">
+                          <FiFolder className="text-lg" />
+                          <span className="font-mono text-sm text-accent-soft">
+                            {project.stack}
+                          </span>
+                        </div>
+                        <span className="grid size-9 place-items-center rounded-lg border border-white/10 text-white transition-all duration-300 group-hover:border-accent group-hover:bg-accent">
+                          <FiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </span>
+                      </div>
+                      <h3 className="font-display text-xl font-semibold text-white">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </a>
+                </TiltCard>
+              </RevealItem>
+            ))}
           </div>
-        ))}
+        </RevealGroup>
       </div>
     </section>
   );

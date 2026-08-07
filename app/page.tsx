@@ -8,14 +8,16 @@ import Experiences from "@/components/templates/Experiences";
 
 export default function Home() {
   return (
-    <main className="">
+    <>
       <Navbar />
-      <Header />
-      <Skills />
-      <WhatIDo />
-      <Projects />
-      <Experiences />
-      <Contact />
-    </main>
+      <main className="relative">
+        <Header />
+        <Skills />
+        <WhatIDo />
+        <Projects />
+        <Experiences />
+        <Contact />
+      </main>
+    </>
   );
 }
