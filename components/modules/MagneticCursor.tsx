@@ -11,85 +11,109 @@ export default function MagneticCursor() {
     const cursorDot = cursorDotRef.current;
     if (!cursor || !cursorDot) return;
 
+    // Only enable the custom cursor on real pointer devices.
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      return;
+    }
+
     let mouseX = 0;
     let mouseY = 0;
     let cursorX = 0;
     let cursorY = 0;
     let dotX = 0;
     let dotY = 0;
+    let visible = false;
+    let rafId = 0;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    };
-
-    const animate = () => {
-      // Smooth follow with spring physics
-      const dx = mouseX - cursorX;
-      const dy = mouseY - cursorY;
-      cursorX += dx * 0.15;
-      cursorY += dy * 0.15;
-
-      const dotDx = mouseX - dotX;
-      const dotDy = mouseY - dotY;
-      dotX += dotDx * 0.5;
-      dotY += dotDy * 0.5;
-
-      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
-      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
-
-      requestAnimationFrame(animate);
-    };
-
-    const handleMouseEnter = () => {
+    const show = () => {
+      if (visible) return;
+      visible = true;
       cursor.style.opacity = "1";
       cursorDot.style.opacity = "1";
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // On the very first movement, snap both cursors to the pointer so they
+      // don't slide in from the top-left corner, then reveal them.
+      if (!visible) {
+        cursorX = dotX = mouseX;
+        cursorY = dotY = mouseY;
+        show();
+      }
+    };
+
+    const animate = () => {
+      // Smooth follow with spring-like easing
+      cursorX += (mouseX - cursorX) * 0.15;
+      cursorY += (mouseY - cursorY) * 0.15;
+      dotX += (mouseX - dotX) * 0.5;
+      dotY += (mouseY - dotY) * 0.5;
+
+      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+
+      rafId = requestAnimationFrame(animate);
+    };
+
     const handleMouseLeave = () => {
+      visible = false;
       cursor.style.opacity = "0";
       cursorDot.style.opacity = "0";
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.body.addEventListener("mouseenter", handleMouseEnter);
-    document.body.addEventListener("mouseleave", handleMouseLeave);
-
-    const animationFrame = requestAnimationFrame(animate);
-
-    // Interactive elements scale the cursor
-    const interactiveElements = document.querySelectorAll(
-      "a, button, [data-magnetic]",
-    );
-
-    const handleInteractiveEnter = () => {
-      cursor.style.width = "60px";
-      cursor.style.height = "60px";
-      cursor.style.backgroundColor = "rgba(124, 92, 255, 0.12)";
-      cursor.style.borderColor = "rgba(124, 92, 255, 0.6)";
+    const handleMouseEnter = (e: MouseEvent) => {
+      cursorX = dotX = e.clientX;
+      cursorY = dotY = e.clientY;
+      show();
     };
 
-    const handleInteractiveLeave = () => {
-      cursor.style.width = "40px";
-      cursor.style.height = "40px";
-      cursor.style.backgroundColor = "rgba(124, 92, 255, 0.06)";
-      cursor.style.borderColor = "rgba(124, 92, 255, 0.3)";
+    // Event delegation so dynamically-added links/buttons (e.g. the mobile
+    // menu) also grow the cursor without needing to re-query the DOM.
+    const isInteractive = (t: EventTarget | null) =>
+      t instanceof Element && !!t.closest("a, button, [data-magnetic]");
+
+    const handleOver = (e: MouseEvent) => {
+      if (isInteractive(e.target)) {
+        cursor.style.width = "60px";
+        cursor.style.height = "60px";
+        cursor.style.backgroundColor = "rgba(124, 92, 255, 0.12)";
+        cursor.style.borderColor = "rgba(124, 92, 255, 0.6)";
+      }
     };
 
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleInteractiveEnter);
-      el.addEventListener("mouseleave", handleInteractiveLeave);
-    });
+    const handleOut = (e: MouseEvent) => {
+      if (isInteractive(e.target) && !isInteractive(e.relatedTarget)) {
+        cursor.style.width = "40px";
+        cursor.style.height = "40px";
+        cursor.style.backgroundColor = "rgba(124, 92, 255, 0.06)";
+        cursor.style.borderColor = "rgba(124, 92, 255, 0.3)";
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    document.documentElement.addEventListener("mouseleave", handleMouseLeave);
+    document.documentElement.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseover", handleOver);
+    document.addEventListener("mouseout", handleOut);
+
+    rafId = requestAnimationFrame(animate);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.body.removeEventListener("mouseenter", handleMouseEnter);
-      document.body.removeEventListener("mouseleave", handleMouseLeave);
-      cancelAnimationFrame(animationFrame);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleInteractiveEnter);
-        el.removeEventListener("mouseleave", handleInteractiveLeave);
-      });
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.documentElement.removeEventListener(
+        "mouseleave",
+        handleMouseLeave,
+      );
+      document.documentElement.removeEventListener(
+        "mouseenter",
+        handleMouseEnter,
+      );
+      document.removeEventListener("mouseover", handleOver);
+      document.removeEventListener("mouseout", handleOut);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
