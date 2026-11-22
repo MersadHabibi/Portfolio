@@ -10,15 +10,30 @@ import { projects, type Project } from "@/data/projects";
 function ProjectLinks({ project }: { project: Project }) {
   return (
     <div className="space-y-2 text-sm text-gray-400">
-      {project.id === 1 && <p>Live deployments:</p>}
-      {project.links?.map((link) => (
-        <p key={link.title}>
-          <a href={link.href} target="_blank" rel="noreferrer" className="text-accent-soft hover:underline">
-            {link.title} <FiArrowUpRight className="inline" />
-          </a>
-          {link.description && <> — {link.description}</>}
-        </p>
-      ))}
+      {project.id === 1 ? (
+        <div>
+          <p className="mb-3 font-medium text-gray-300">Live deployments</p>
+          <div className="flex flex-wrap gap-2">
+            {project.links?.map((link) => (
+              <a key={link.title} href={link.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-accent/50 bg-accent/15 px-4 py-2.5 font-semibold text-white transition-colors hover:border-accent hover:bg-accent/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft">
+                {link.title} <FiArrowUpRight />
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : project.links && (
+        <div className="mt-2 grid gap-2">
+          {project.links.map((link) => (
+            <a key={link.title} href={link.href} target="_blank" rel="noreferrer" className="group/link flex min-h-11 items-center justify-between gap-4 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 transition-colors hover:border-accent hover:bg-accent/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft">
+              <span>
+                <span className="block font-semibold text-white">{link.title}</span>
+                {link.description && <span className="mt-1 block text-xs leading-relaxed text-gray-400">{link.description}</span>}
+              </span>
+              <FiArrowUpRight aria-hidden="true" className="shrink-0 text-lg text-accent-soft transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -33,8 +48,9 @@ export default function Projects() {
           <RevealItem>
             <TiltCard className="group">
               <div className="glass grid overflow-hidden rounded-2xl md:grid-cols-2">
-                <div className="grid min-h-48 place-items-center bg-gradient-to-br from-accent/25 to-cyan-neon/10 text-accent-soft md:min-h-full" aria-hidden="true">
-                  <FiFolder className="text-6xl" />
+                <div className="relative aspect-video overflow-hidden md:aspect-auto md:min-h-full">
+                  {featured.image && <Image src={featured.image} alt="Jahat real estate management dashboard" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 to-transparent" />
                 </div>
                 <div className="relative flex flex-col justify-center gap-4 p-8 lg:p-12">
                   <h3 className="font-display text-3xl font-bold text-white lg:text-4xl">{featured.title}</h3>
@@ -50,7 +66,7 @@ export default function Projects() {
               <RevealItem key={project.id}>
                 <TiltCard intensity={8} className="group h-full">
                   <div className="glass glass-hover flex h-full flex-col overflow-hidden rounded-2xl">
-                    {project.image && <div className="relative aspect-video overflow-hidden"><Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover object-top transition-transform duration-700 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent" /></div>}
+                    {project.image && <div className="relative aspect-video overflow-hidden"><Image src={project.image} alt={project.id === 4 ? "Pouyesh Saz website, a Ravinow client project" : project.title} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover object-top transition-transform duration-700 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent" /></div>}
                     <div className="flex flex-1 flex-col gap-3 p-6">
                       <FiFolder className="text-lg text-accent-soft" />
                       <h3 className="font-display text-xl font-semibold text-white">

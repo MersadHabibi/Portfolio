@@ -13,6 +13,7 @@ export const projects: Project[] = [
     title: "Jahat",
     description: "Independently designed, built, and launched a shared real estate management platform for multiple agencies, handling product design, frontend, backend, and DevOps.",
     href: "https://jahat-demo.vercel.app/",
+    image: "/images/projects/jahat.jpg",
     links: [
       { title: "Kalanshahr", href: "https://kalanshahr.com/" },
       { title: "Royal Melk", href: "https://royalmelk.com/" },
@@ -35,6 +36,7 @@ export const projects: Project[] = [
     title: "Selected Client Projects — Ravinow",
     description: "Delivered through Pardakht Plus for Ravinow, a public-sector cultural institution and client of Pardakht Plus.",
     href: "https://ravinow.ir/",
+    image: "/images/projects/ravinow.png",
     links: [
       { title: "Pouyesh Saz", description: "Online form and survey builder.", href: "https://ravei.ir/" },
       { title: "Meydan Yar", description: "Platform for in-person competitions.", href: "https://meydan-yar.ir/" },
