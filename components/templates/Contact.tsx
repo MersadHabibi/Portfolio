@@ -72,7 +72,7 @@ export default function Contact() {
                 <div>
                   <p className="text-xs text-gray-500">Location</p>
                   <p className="text-sm font-medium text-white">
-                    Available worldwide · Remote
+                    Tabriz, Iran · Open to relocation
                   </p>
                 </div>
               </div>

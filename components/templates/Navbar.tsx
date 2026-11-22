@@ -102,7 +102,12 @@ export default function Navbar() {
               download
               className="hidden sm:inline-flex">
               <span className="rounded-xl bg-white px-5 py-2 text-sm font-semibold text-ink-900 transition-colors hover:bg-accent hover:text-white">
-                Resume
+                Resume (English)
+              </span>
+            </MagneticButton>
+            <MagneticButton href="/resume-fa.pdf" download className="hidden sm:inline-flex">
+              <span className="rounded-xl border border-white/15 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/5">
+                Resume (Persian)
               </span>
             </MagneticButton>
             <button
@@ -171,7 +176,13 @@ export default function Navbar() {
                 href="/resume.pdf"
                 download
                 className="mt-4 rounded-xl bg-accent px-4 py-3 text-center font-semibold text-white">
-                Resume
+                Resume (English)
+              </Link>
+              <Link
+                href="/resume-fa.pdf"
+                download
+                className="rounded-xl border border-white/15 px-4 py-3 text-center font-semibold text-white">
+                Resume (Persian)
               </Link>
             </motion.div>
           </motion.div>

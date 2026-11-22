@@ -1,57 +1,59 @@
-export const projects = [
+export type Project = {
+  id: number;
+  title: string;
+  description: string;
+  href?: string;
+  image?: string;
+  links?: { title: string; href: string; description?: string }[];
+};
+
+export const projects: Project[] = [
   {
     id: 1,
-    title: "Azarmelk",
-    image: "/images/projects/azarmelk.png",
-    buttonStyle:
-      "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
-    href: "https://azarmelk.com",
-    stack: "Front-End",
-    stackClassName:
-      "bg-second-color-100 border-2 border-second-color-200 shadow-lg shadow-second-color-100/40 text-second-color-300",
+    title: "Jahat",
+    description: "Independently designed, built, and launched a shared real estate management platform for multiple agencies, handling product design, frontend, backend, and DevOps.",
+    href: "https://jahat-demo.vercel.app/",
+    links: [
+      { title: "Kalanshahr", href: "https://kalanshahr.com/" },
+      { title: "Royal Melk", href: "https://royalmelk.com/" },
+    ],
   },
   {
     id: 2,
-    title: "Resistance Art",
-    image: "/images/projects/resistanceart.png",
-    buttonStyle:
-      "bg-second-color-200 border-[2.5px] border-second-color-300 shadow-lg shadow-second-color-100/40",
-    href: "https://resistanceart.ir",
-    stack: "Front-End",
-    stackClassName:
-      "bg-third-color-100 border-2 border-third-color-200 shadow-lg shadow-third-color-100/40 text-third-color-300",
+    title: "Azarmelk",
+    description: "Built a real estate management platform for managing property listings, scheduling appointments, and tracking client visits.",
+    href: "https://azarmelk.com/",
+    image: "/images/projects/azarmelk.png",
   },
   {
     id: 3,
-    title: "Next-Ecommerce",
-    image: "/images/projects/next-ecommerce.png",
-    buttonStyle:
-      "bg-first-color-200 border-[2.5px] border-first-color-300 shadow-lg shadow-first-color-100/40",
-    href: "https://next-ecommerce-murex-mu.vercel.app",
-    stack: "Full-Stack",
-    stackClassName:
-      "bg-first-color-100 border-2 border-first-color-200 shadow-lg shadow-first-color-100/40 text-first-color-300",
+    title: "Multi-site CMS",
+    description: "Developed a multi-site CMS that gives administrators a single dashboard to manage content across seven websites.",
   },
   {
     id: 4,
-    title: "Arya Shop",
-    image: "/images/projects/arya-shop.png",
-    buttonStyle:
-      "bg-fourth-color-200 border-[2.5px] border-fourth-color-300 shadow-lg shadow-fourth-color-100/40",
-    href: "https://arya-company.com/",
-    stack: "Front-End",
-    stackClassName:
-      "bg-fourth-color-100 border-2 border-fourth-color-200 shadow-lg shadow-fourth-color-100/40 text-fourth-color-300",
+    title: "Selected Client Projects — Ravinow",
+    description: "Delivered through Pardakht Plus for Ravinow, a public-sector cultural institution and client of Pardakht Plus.",
+    href: "https://ravinow.ir/",
+    links: [
+      { title: "Pouyesh Saz", description: "Online form and survey builder.", href: "https://ravei.ir/" },
+      { title: "Meydan Yar", description: "Platform for in-person competitions.", href: "https://meydan-yar.ir/" },
+      { title: "Ravi Book", description: "Online book archive.", href: "https://ravibook.ir/" },
+      { title: "Zang-e Khabar", description: "Student journalism website.", href: "https://ravimiz.ir/" },
+    ],
   },
   {
     id: 5,
     title: "Wiki Sefaresh",
+    description: "Built a consumer review platform where shoppers can share their online shopping experiences and read reviews before purchasing.",
+    href: "https://www.wiki-sefaresh.ir/",
     image: "/images/projects/wiki-sefaresh.png",
-    buttonStyle:
-      "bg-third-color-200 border-[2.5px] border-third-color-300 shadow-lg shadow-third-color-100/40",
-    href: "https://www.wiki-sefaresh.ir",
-    stack: "Full-Stack",
-    stackClassName:
-      "bg-third-color-100 border-2 border-third-color-200 shadow-lg shadow-third-color-100/40 text-third-color-300",
+  },
+  {
+    id: 6,
+    title: "Arya Shop",
+    description: "Developed an e-commerce storefront for browsing and purchasing industrial tools and equipment.",
+    href: "https://arya-company.com/",
+    image: "/images/projects/arya-shop.png",
   },
 ];

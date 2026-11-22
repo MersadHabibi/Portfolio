@@ -49,9 +49,10 @@ export default function Experiences() {
                     {experience.position}
                   </h3>
                   <p className="text-accent-soft">{experience.company}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                    {experience.description}
-                  </p>
+                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-gray-400">
+                    {experience.description.map((item) => <li key={item}>{item}</li>)}
+                    <li>Delivered software projects for <a href="https://ravinow.ir/" target="_blank" rel="noreferrer" className="text-accent-soft hover:underline">Ravinow</a>, a public-sector cultural institution and client of Pardakht Plus.</li>
+                  </ul>
                 </div>
               </motion.div>
             ))}

@@ -8,20 +8,20 @@ import MagneticCursor from "@/components/modules/MagneticCursor";
 import AnimatedBackground from "@/components/modules/AnimatedBackground";
 
 export const metadata: Metadata = {
-  title: "Mersad Habibi — Front-End Developer",
-  description: "Front-end developer building fast, polished web experiences with React, Next.js, and modern animation libraries.",
+  title: "Mersad Habibi — Software Engineer",
+  description: "Software engineer building web applications across the front end and back end and designing products.",
   icons: {
     icon: "/svg/avatar.svg",
     href: "/svg/avatar.svg",
   },
   openGraph: {
-    title: "Mersad Habibi — Front-End Developer",
-    description: "Front-end developer building fast, polished web experiences",
+    title: "Mersad Habibi — Software Engineer",
+    description: "Software engineer building web applications and designing products",
     images: ["/images/me.jpg"],
   },
   keywords: [
     "mersad habibi",
-    "front-end developer",
+    "software engineer",
     "react developer",
     "nextjs developer",
     "مرصاد حبیبی",

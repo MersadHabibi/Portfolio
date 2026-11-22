@@ -83,8 +83,7 @@ export default function Header() {
           <motion.p
             variants={item}
             className="mt-6 max-w-lg text-lg leading-relaxed text-gray-400">
-            Front-end developer crafting fast, accessible, and beautifully
-            animated web experiences with React, Next.js, and TypeScript.
+            I’m a software engineer with 2+ years of professional experience building web applications across the front end and back end. I also design the products I build, from defining features to shaping user flows.
           </motion.p>
 
           <motion.div
@@ -98,7 +97,12 @@ export default function Header() {
             </MagneticButton>
             <MagneticButton href="/resume.pdf" download>
               <span className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/5">
-                <FiDownload /> Resume
+                <FiDownload /> Resume (English)
+              </span>
+            </MagneticButton>
+            <MagneticButton href="/resume-fa.pdf" download>
+              <span className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/5">
+                <FiDownload /> Resume (Persian)
               </span>
             </MagneticButton>
           </motion.div>

@@ -41,6 +41,10 @@ export default function Skills() {
             />
           </div>
         </div>
+        <div className="text-center text-sm text-gray-400">
+          <p className="font-semibold text-white">AI-assisted development</p>
+          <p className="mt-2">Claude Code · OpenAI Codex · Cursor</p>
+        </div>
       </div>
     </section>
   );
